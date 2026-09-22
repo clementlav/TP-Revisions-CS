@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MonDomaine.AppliWinForms/MonDomaine.AppliWinForms.csproj" />
+  <Project Path="MonDomaine.DLL/MonDomaine.DLL.csproj" />
+</Solution>
