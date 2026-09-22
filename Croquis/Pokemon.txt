@@ -1,0 +1,33 @@
+Pokemon
+│
+├── nom
+├── niveau
+├── pointsDeVie
+├── attaque
+├── defense
+├── vitesse
+├── type
+└── rarete
+
+Méthodes :
+
+Attaquer(Pokemon adversaire)
+RecevoirDegats(int degats)
+Soigner()
+GagnerExperience(int xp)
+EstVivant()
+ToString()
+Dresseur
+Dresseur
+│
+├── nom
+├── equipe : List<Pokemon>
+├── nombreDeVictoires
+└── nombreDeDefaites
+
+Méthodes :
+
+AjouterPokemon()
+RetirerPokemon()
+ChoisirPokemon()
+Combattre(Dresseur adversaire)
