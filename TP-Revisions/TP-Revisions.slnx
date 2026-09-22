@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="MonDomaine.AppliWinForms/MonDomaine.AppliWinForms.csproj" />
-  <Project Path="MonDomaine.DLL/MonDomaine.DLL.csproj" />
+  <Project Path="MonDomaine.AppliWinForms/MonDomaine.AppliWinForms.csproj" Id="1002ed03-5e90-4ade-bd8c-66993fd1f7d0" />
+  <Project Path="MonDomaine.DLL/MonDomaine.DLL.csproj" Id="4413e0b8-ae6d-48bf-9e7f-bd56f5f419dd" />
 </Solution>
