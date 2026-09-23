@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Type = MonDomaine.DLL.Type;
 
 namespace MonDomaine.AppliWinForms
 {
@@ -19,12 +20,19 @@ namespace MonDomaine.AppliWinForms
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            Dresseur max = new Dresseur("Max", 9, 8);
+            Dresseur max = new Dresseur("Max",11);
             Pokemon pikachu = new Pokemon("Pikachu", 10, 100, Type.Electrique, "Légendaire");
+            Pokemon Df = new Pokemon("Df", 10, 100, Type.Electrique, "Légendaire");
 
+            max.AttraperPokemon(pikachu);
+            max.AttraperPokemon(Df);
+            max.GetEquipe();
+            pikachu.manger();
+            
+            Console.WriteLine(max.ToString());
             try
             {
-                max.attraperPokemon(pikachu);
+
             }
             catch (Exception ex)
             {
@@ -32,16 +40,19 @@ namespace MonDomaine.AppliWinForms
 
                 if (ex.Data.Count > 0)
                 {
-                    List<Pokemon> lesPokemonTrouvees = (List<Pokemon>)ex.Data["dupliquer"];
+                    string leDoublonTrouvees = (string)ex.Data["doublon"];
+                    string lePokemonEcraseur = (string)ex.Data["ecraseur"];
 
-                    messageErreur = ex.Message + "\n" + lesPokemonTrouvees.Count + " ingredient(s) a(ont) provoquÃ© l'allergie :\n";
-
-                    foreach (Pokemon unPokemon in lesPokemonTrouvees)
+                    if (leDoublonTrouvees != "")
                     {
-                        messageErreur += "   - " + unPokemon.ToString() + "\n";
+                        messageErreur = ex.Message + "\n" + leDoublonTrouvees + " est déjà dans votre Equipe !\n";
+                    }
+
+                    if (lePokemonEcraseur == "")
+                    {
+                        messageErreur = ex.Message + "\n" + lePokemonEcraseur + " vous à écraser ...\n";
                     }
                 }
-
 
                 Console.WriteLine("Exception levÃ©e (v4) : \n" + messageErreur);
             }

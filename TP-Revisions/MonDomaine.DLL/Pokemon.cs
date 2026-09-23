@@ -49,7 +49,6 @@ namespace MonDomaine.DLL
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = pointsDeVie;
-      
             this.type = type;
             this.rarete = rarete;
         }
@@ -134,13 +133,17 @@ namespace MonDomaine.DLL
         #endregion
         #region Méthodes
 
-        public void manger(Pokemon pokemon) 
+        public void manger() 
         {
-            pokemon.niveau += 1;
+            this.niveau += 1;
         }
-        public void dormir(Pokemon pokemon)
+        public void dormir()
         {
-            pokemon.pointsDeVie += 10;
+            this.pointsDeVie += 10;
+        }
+        public override string ToString()
+        {
+            return $"Nom : {nom} | Puissance : {niveau} | Type : {type} ";
         }
         #endregion
     }

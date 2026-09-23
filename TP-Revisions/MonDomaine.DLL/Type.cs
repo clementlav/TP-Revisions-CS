@@ -12,6 +12,7 @@ namespace MonDomaine.DLL
         Terre,
         Feu,
         Feuille,
+        Electrique,
         Inconnu
     }
 }
