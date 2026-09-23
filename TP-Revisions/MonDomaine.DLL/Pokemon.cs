@@ -11,6 +11,7 @@ namespace MonDomaine.DLL
         #region Champs privés
         public string nom = "Inconnu";
         public int niveau = 0;
+        public int attaque = 0;
         public int pointsDeVie = 0;
         public Type type = Type.Inconnu;
         public string rarete = "Inconnu";
@@ -44,13 +45,14 @@ namespace MonDomaine.DLL
         }
         #endregion
         #region Constructeurs
-        public Pokemon(string nom, int niveau, int pointsDeVie, Type type, string rarete)
+        public Pokemon(string nom, int niveau, int pointsDeVie, Type type, string rarete, int attaque)
         {
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = pointsDeVie;
             this.type = type;
             this.rarete = rarete;
+            this.attaque = attaque;
         }
         public Pokemon(string nom, int niveau, int pointsDeVie, Type type)
         {
@@ -144,6 +146,29 @@ namespace MonDomaine.DLL
         public override string ToString()
         {
             return $"Nom : {nom} | Puissance : {niveau} | Type : {type} ";
+        }
+
+        public void Attaquer(Pokemon defenseur)
+        {
+            Console.WriteLine($"{nom} attaque {defenseur.Nom} !");
+            defenseur.SubirDegats(attaque);
+        }
+
+        public void SubirDegats(int degats)
+        {
+            pointsDeVie -= degats;
+
+            Console.WriteLine($"{nom} subit {degats} points de dégâts !");
+
+            if (pointsDeVie <= 0)
+            {
+                pointsDeVie = 0;
+                Console.WriteLine($"{nom} est KO !");
+            }
+        }
+        public bool EstVivant()
+        {
+            return pointsDeVie > 0;
         }
         #endregion
     }

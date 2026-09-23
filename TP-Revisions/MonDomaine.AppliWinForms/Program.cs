@@ -21,15 +21,10 @@ namespace MonDomaine.AppliWinForms
             //Application.Run(new Form1());
 
             Dresseur max = new Dresseur("Max",11);
-            Pokemon pikachu = new Pokemon("Pikachu", 10, 100, Type.Electrique, "Légendaire");
-            Pokemon Df = new Pokemon("Df", 10, 100, Type.Electrique, "Légendaire");
+            Pokemon pikachu = new Pokemon("Pikachu", 10, 100, Type.Electrique, "Légendaire", 10);
+            Pokemon Df = new Pokemon("Df", 10, 100, Type.Electrique, "Légendaire", 20);
 
-            max.AttraperPokemon(pikachu);
-            max.AttraperPokemon(Df);
-            max.GetEquipe();
-            pikachu.manger();
-            
-            Console.WriteLine(max.ToString());
+            Combat.LancerCombat(pikachu, Df);
             try
             {
 
