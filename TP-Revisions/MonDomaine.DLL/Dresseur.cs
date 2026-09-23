@@ -144,7 +144,7 @@ namespace MonDomaine.DLL
             List<Pokemon> pokemonCapture = new List<Pokemon>();
             string messageException = "";
 
-            if (monEquipe.Contains(Pokemon))
+            if (!monEquipe.Contains(Pokemon))
             {
                 this.isContent = false;
                 messageException += "\nLe Pokemon " + Pokemon.nom + " est déja dans l'équipe !!!";
@@ -156,23 +156,9 @@ namespace MonDomaine.DLL
                 PokemonException.Data["doublon"] = Pokemon.Nom;
                 throw PokemonException;
             }
-
-
-            if (this.puissance < Pokemon.niveau)
+            if (monEquipe.Contains(Pokemon))
             {
-                this.isContent = false;
-                messageException += "\nAttention le Pokemon " + Pokemon.nom + " va vous écraser !!! (il te manque : " + (Pokemon.niveau -= this.puissance) + " niveau(x) pour le battre)";
-            }
-            if (messageException != "")
-            {
-                Exception PokemonException = new Exception(messageException);
-                PokemonException.Data["ecraseur"] = Pokemon.Nom;
-                PokemonException.Data["niveau"] = Pokemon.Niveau;
-                throw PokemonException;
-            }
-            if (this.puissance >= Pokemon.niveau)
-            {
-                monEquipe.Add(Pokemon);
+                monEquipe.Remove(Pokemon);
                 Console.WriteLine("Le Pokemon " + Pokemon.Nom + " à rejoint votre équipe.");
             }
         }

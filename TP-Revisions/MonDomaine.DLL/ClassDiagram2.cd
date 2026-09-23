@@ -3,15 +3,22 @@
   <Class Name="MonDomaine.DLL.Dresseur">
     <Position X="11" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAASAAAAAAAgIAAAAAAAIAABBCIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAASAAAAAAAgIAAEAAAAIEABACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Dresseur.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MonDomaine.DLL.Pokemon">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAIAAAAAAAEAAAIAAAIAAFEXAFAgAABQAQAACAEAg=</HashCode>
+      <HashCode>AIAAIAAAAAAAEAAEIAAAIAAFEXAVAgAARQAQAAGQEAg=</HashCode>
       <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonDomaine.DLL.Combat">
+    <Position X="3.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Combat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="MonDomaine.DLL.Type">

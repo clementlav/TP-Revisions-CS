@@ -15,6 +15,7 @@ namespace MonDomaine.DLL
         public int pointsDeVie = 0;
         public Type type = Type.Inconnu;
         public string rarete = "Inconnu";
+        private Dresseur monDresseur;
         #endregion
         #region Propriétés
         public string Nom
@@ -42,6 +43,11 @@ namespace MonDomaine.DLL
         {
             get { return rarete; }
             private set { rarete = value; }
+        }
+        public Dresseur MonDresseur
+        {
+            get { return monDresseur; }
+            private set { monDresseur = value; }
         }
         #endregion
         #region Constructeurs
