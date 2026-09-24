@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -10,9 +11,45 @@ namespace MonDomaine.DLL
 {
     public class Combat
     {
-        public static void LancerCombat(Pokemon pokemon1, Pokemon pokemon2)
+        private DateTime dateCombat = DateTime.Now;
+        private string resultat;
+        private Dresseur dresseur1;
+        private Dresseur dresseur2;
+
+        public Dresseur Dresseur1
         {
-            Console.WriteLine($"Combat entre {pokemon1.Nom} et {pokemon2.Nom} !");
+            get { return dresseur1; }
+            set { dresseur1 = value; }
+        }
+
+        public Dresseur Dresseur2
+        {
+            get { return dresseur2; }
+            set { dresseur2 = value; }
+        }
+
+        public Combat(Dresseur dresseur1, Dresseur dresseur2)
+        {
+            this.dresseur1 = dresseur1;
+            this.dresseur2 = dresseur2;
+        }
+        public string LancerCombat(Pokemon pokemon1, Pokemon pokemon2)
+        {
+            string messageCombatException = "";
+
+            if (!dresseur1.verifierPokemonEquipe(pokemon1))
+            {
+                Exception PokemonCombatException = new Exception(messageCombatException);
+                PokemonCombatException.Data["absence"] = pokemon1.nom;
+                throw PokemonCombatException;
+            }
+
+            if (!dresseur2.verifierPokemonEquipe(pokemon2))
+            {
+                Exception PokemonCombatException = new Exception(messageCombatException);
+                PokemonCombatException.Data["absence"] = pokemon2.nom;
+                throw PokemonCombatException;
+            }
 
             while (pokemon1.EstVivant() && pokemon2.EstVivant())
             {
@@ -26,12 +63,13 @@ namespace MonDomaine.DLL
 
             if (pokemon1.EstVivant())
             {
-                Console.WriteLine($"{pokemon1.Nom} a gagné le combat !");
+                resultat = $"{dresseur1.Nom} a remporter le combat avec {pokemon1.Nom} !";
             }
             else
             {
-                Console.WriteLine($"{pokemon2.Nom} a gagné le combat !");
+                resultat = $"{dresseur2.Nom} a remporter le combat avec {pokemon2.Nom} !";
             }
+            return resultat;
         }
 
         

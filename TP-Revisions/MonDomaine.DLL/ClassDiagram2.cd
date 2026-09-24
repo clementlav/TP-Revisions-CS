@@ -1,31 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="MonDomaine.DLL.Dresseur">
-    <Position X="11" Y="1.25" Width="1.5" />
+    <Position X="9" Y="1.5" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAASAAAAAAAgIAAEAAAAIEABACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAASAAAAAAAgIAAEAAAAJEABACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Dresseur.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="monEquipe" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MonDomaine.DLL.Pokemon">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="15.75" Y="1.5" Width="6" />
     <TypeIdentifier>
-      <HashCode>AIAAIAAAAAAAEAAEIAAAIAAFEXAVAgAARQAQAAGQEAg=</HashCode>
+      <HashCode>AIAAIAAAAAAAFAAEIAAAIAAFEWAQAgAAZAAQAgGQEAo=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="monDresseur" />
+      <Field Name="rarete" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="lesTypes" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MonDomaine.DLL.Combat">
-    <Position X="3.25" Y="1" Width="1.5" />
+    <Position X="4.5" Y="6.75" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAgACAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAAAAIAAA=</HashCode>
       <FileName>Combat.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dresseur1" />
+      <Field Name="dresseur2" />
+    </ShowAsAssociation>
   </Class>
   <Enum Name="MonDomaine.DLL.Type">
-    <Position X="6.25" Y="2.25" Width="1.5" />
+    <Position X="13.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAEAAAgCAgAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAQAAAAEAAigCAgBAAACAAAACAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Type.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MonDomaine.DLL.Rarete">
+    <Position X="22.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAEAAIAA=</HashCode>
+      <FileName>Rarete.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

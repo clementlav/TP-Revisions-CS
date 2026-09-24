@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Type = MonDomaine.DLL.Type;
+using Rarete = MonDomaine.DLL.Rarete;
+
 
 namespace MonDomaine.AppliWinForms
 {
@@ -20,37 +22,18 @@ namespace MonDomaine.AppliWinForms
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            Dresseur max = new Dresseur("Max",11);
-            Pokemon pikachu = new Pokemon("Pikachu", 10, 100, Type.Electrique, "Légendaire", 10);
-            Pokemon Df = new Pokemon("Df", 10, 100, Type.Electrique, "Légendaire", 20);
+            Tests.demo1_creationObjets();
+            //Tests.demo2_creationObjets();
+            //Tests.demo1_ToStringPokemon();
+            //Tests.demo1_ToStringDresseur();
+            //Tests.demo1_subitDegats();
+            //Tests.demo1_attaquer();
+            //Tests.demo1_lancerCombat();
+            //Tests.demo1_ExceptionAttraperPokemonDoublon();
+            //Tests.demo2_ExceptionAttraperPokemonEcraseur();
+            //Tests.demo1_ExceptionLancerCombatAbsencePokemon();
 
-            Combat.LancerCombat(pikachu, Df);
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                string messageErreur = ex.Message;
-
-                if (ex.Data.Count > 0)
-                {
-                    string leDoublonTrouvees = (string)ex.Data["doublon"];
-                    string lePokemonEcraseur = (string)ex.Data["ecraseur"];
-
-                    if (leDoublonTrouvees != "")
-                    {
-                        messageErreur = ex.Message + "\n" + leDoublonTrouvees + " est déjà dans votre Equipe !\n";
-                    }
-
-                    if (lePokemonEcraseur == "")
-                    {
-                        messageErreur = ex.Message + "\n" + lePokemonEcraseur + " vous à écraser ...\n";
-                    }
-                }
-
-                Console.WriteLine("Exception levÃ©e (v4) : \n" + messageErreur);
-            }
         }
     }
 }

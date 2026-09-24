@@ -9,13 +9,14 @@ namespace MonDomaine.DLL
     public class Pokemon
     {
         #region Champs privés
+        public string descriptionAttaque = "";
         public string nom = "Inconnu";
         public int niveau = 0;
         public int attaque = 0;
         public int pointsDeVie = 0;
-        public Type type = Type.Inconnu;
-        public string rarete = "Inconnu";
-        private Dresseur monDresseur;
+        public List<Type> lesTypes = new List<Type>();
+        public Rarete rarete = DLL.Rarete.Inconnue;
+        private Dresseur monDresseur;   
         #endregion
         #region Propriétés
         public string Nom
@@ -33,17 +34,8 @@ namespace MonDomaine.DLL
             get { return pointsDeVie; }
             private set { pointsDeVie = value; }
         }
-       
-        public Type Type
-        {
-            get { return type; }
-            private set { type = value; }
-        }
-        public string Rarete
-        {
-            get { return rarete; }
-            private set { rarete = value; }
-        }
+      
+        
         public Dresseur MonDresseur
         {
             get { return monDresseur; }
@@ -51,31 +43,27 @@ namespace MonDomaine.DLL
         }
         #endregion
         #region Constructeurs
-        public Pokemon(string nom, int niveau, int pointsDeVie, Type type, string rarete, int attaque)
+        public Pokemon(string nom, int niveau, int pointsDeVie, List<Type> lesTypes, Rarete rarete, int attaque)
         {
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = pointsDeVie;
-            this.type = type;
+            this.lesTypes = lesTypes;
             this.rarete = rarete;
             this.attaque = attaque;
         }
-        public Pokemon(string nom, int niveau, int pointsDeVie, Type type)
+        public Pokemon(string nom, int niveau, int pointsDeVie, List<Type> lesTypes)
         {
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = pointsDeVie;
-            
-            this.type = type;
-            this.rarete = "Inconnu";
         }
         public Pokemon(string nom, int niveau, int pointsDeVie)
         {
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = pointsDeVie;
-            this.type = Type.Inconnu;
-            this.rarete = "Inconnu";
+            this.lesTypes = new List<Type>();
         }
         
         public Pokemon(string nom, int niveau)
@@ -83,8 +71,6 @@ namespace MonDomaine.DLL
             this.nom = nom;
             this.niveau = niveau;
             this.pointsDeVie = 0;
-            this.type = Type.Inconnu;
-            this.rarete = "Inconnu";
         }
         public Pokemon()
         {
@@ -105,11 +91,11 @@ namespace MonDomaine.DLL
         }
         
         
-        public Type getType()
+        public List<Type> getType()
         {
-            return type;
+            return lesTypes;
         }
-        public string getRarete()
+        public Rarete getRarete()
         {
             return rarete;
         }
@@ -125,19 +111,12 @@ namespace MonDomaine.DLL
         {
             this.pointsDeVie = pointsDeVie;
         }
-        
-        private void setType(Type type)
-        {
-            this.type = type;
-        }
-        private void setRarete(string rarete)
+       
+        private void setRarete(Rarete rarete)
         {
             this.rarete = rarete;
         }
-        private void setRarete(Type rarete)
-        {
-            this.rarete = rarete.ToString();
-        }
+        
         #endregion
         #region Méthodes
 
@@ -151,26 +130,20 @@ namespace MonDomaine.DLL
         }
         public override string ToString()
         {
-            return $"Nom : {nom} | Puissance : {niveau} | Type : {type} ";
+            return $"Nom : {nom} | Niveau : {niveau} | Point de vie : {pointsDeVie} | Type : {string.Join(", ", lesTypes)} | Rarete : {rarete}";
         }
 
-        public void Attaquer(Pokemon defenseur)
+        public string Attaquer(Pokemon defenseur)
         {
-            Console.WriteLine($"{nom} attaque {defenseur.Nom} !");
             defenseur.SubirDegats(attaque);
+            return $"Le Pokémon {this.nom} attaque {defenseur.nom}";
         }
 
-        public void SubirDegats(int degats)
+        public string SubirDegats(int degats)
         {
             pointsDeVie -= degats;
-
-            Console.WriteLine($"{nom} subit {degats} points de dégâts !");
-
-            if (pointsDeVie <= 0)
-            {
-                pointsDeVie = 0;
-                Console.WriteLine($"{nom} est KO !");
-            }
+            return $"Le Pokémon {this.nom} subit {degats} dégâts";
+             
         }
         public bool EstVivant()
         {

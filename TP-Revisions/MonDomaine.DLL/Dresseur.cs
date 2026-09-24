@@ -134,7 +134,6 @@ namespace MonDomaine.DLL
             if (this.puissance >= Pokemon.niveau)
             {
                 monEquipe.Add(Pokemon);
-                Console.WriteLine("Le Pokemon " + Pokemon.Nom + " à rejoint votre équipe.");
             }
         }
 
@@ -159,8 +158,12 @@ namespace MonDomaine.DLL
             if (monEquipe.Contains(Pokemon))
             {
                 monEquipe.Remove(Pokemon);
-                Console.WriteLine("Le Pokemon " + Pokemon.Nom + " à rejoint votre équipe.");
             }
+        }
+
+        public bool verifierPokemonEquipe(Pokemon Pokemon)
+        {
+            return this.monEquipe.Contains(Pokemon);     
         }
         #endregion
 

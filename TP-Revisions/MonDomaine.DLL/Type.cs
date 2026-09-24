@@ -9,10 +9,17 @@ namespace MonDomaine.DLL
     public enum Type
     {
         Eau,
-        Terre,
+        Combat,
         Feu,
-        Feuille,
+        Plante,
         Electrique,
+        Psy,
+        Tenebre,
+        Fee,
+        Dragon,
+        Acier,
+        Vol,
+        Poison,
         Inconnu
     }
 }

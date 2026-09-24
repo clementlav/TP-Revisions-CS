@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Combat.cs" />
     <Compile Include="Dresseur.cs" />
+    <Compile Include="Rarete.cs" />
     <Compile Include="Type.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
