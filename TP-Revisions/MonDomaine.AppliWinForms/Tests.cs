@@ -54,6 +54,10 @@ namespace MonDomaine.AppliWinForms
         public static void demo1_ToStringDresseur()
         {
             Dresseur max = new Dresseur("Max", 11);
+            Pokemon pikachu = new Pokemon("Pikachu", 10, 100, new List<Type> { Type.Electrique, Type.Feu }, Rarete.Legendaire, 10);
+            Pokemon carapuce = new Pokemon("Carapuce", 10, 100, new List<Type> { Type.Eau }, Rarete.Commun, 5);
+            max.AttraperPokemon(pikachu);
+            max.AttraperPokemon(carapuce);
             Console.WriteLine(max.ToString());
         }
 
@@ -66,6 +70,8 @@ namespace MonDomaine.AppliWinForms
             Dresseur lea = new Dresseur("lea", 11);
             Pokemon pikachu = new Pokemon("Pikachu", 10, 100, new List<Type> { Type.Electrique, Type.Feu }, Rarete.Legendaire, 10);
             Pokemon carapuce = new Pokemon("Carapuce", 10, 100, new List<Type> { Type.Eau }, Rarete.Commun, 5);
+            max.AttraperPokemon(pikachu);
+            lea.AttraperPokemon(carapuce);
             Combat combat1 = new Combat(max, lea);
             Console.WriteLine(combat1.LancerCombat(pikachu, carapuce));
         }
@@ -185,12 +191,12 @@ namespace MonDomaine.AppliWinForms
                     string leDoublonTrouvees = (string)ex.Data["doublon"];
                     string lePokemonEcraseur = (string)ex.Data["ecraseur"];
 
-                    if (leDoublonTrouvees != "")
+                    if (leDoublonTrouvees != null)
                     {
                         messageErreur = ex.Message + "\n" + leDoublonTrouvees + " est déjà dans votre Equipe !\n";
                     }
 
-                    if (lePokemonEcraseur == "")
+                    if (lePokemonEcraseur != "")
                     {
                         messageErreur = ex.Message + "\n" + lePokemonEcraseur + " vous à écraser ...\n";
                     }

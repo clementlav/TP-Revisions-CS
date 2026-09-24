@@ -22,7 +22,7 @@ namespace MonDomaine.AppliWinForms
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            Tests.demo1_creationObjets();
+            //Tests.demo1_creationObjets();
             //Tests.demo2_creationObjets();
             //Tests.demo1_ToStringPokemon();
             //Tests.demo1_ToStringDresseur();
@@ -30,7 +30,7 @@ namespace MonDomaine.AppliWinForms
             //Tests.demo1_attaquer();
             //Tests.demo1_lancerCombat();
             //Tests.demo1_ExceptionAttraperPokemonDoublon();
-            //Tests.demo2_ExceptionAttraperPokemonEcraseur();
+            Tests.demo2_ExceptionAttraperPokemonEcraseur();
             //Tests.demo1_ExceptionLancerCombatAbsencePokemon();
 
 

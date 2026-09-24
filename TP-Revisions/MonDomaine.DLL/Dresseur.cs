@@ -91,7 +91,7 @@ namespace MonDomaine.DLL
             {
                 monEquipeDoublons.Add(pokemon);
             }
-            Console.WriteLine("Voici les Pokemons dans votre équipe : ");
+            Console.WriteLine($"Voici les Pokemons dans l'équipe de {this.nom} : ");
             foreach (Pokemon Pokemon in monEquipeDoublons)
             {
                 Console.WriteLine("- " + Pokemon.Nom );
